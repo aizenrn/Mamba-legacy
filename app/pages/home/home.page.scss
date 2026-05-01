@@ -1,0 +1,297 @@
+.home-page {
+  --background: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  color: #111;
+  padding: 1.2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  min-height: 100vh;
+
+  /* 🔝 Top Bar */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5rem;
+
+    .logo {
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -1px;
+      color: #000;
+    }
+
+    ion-icon {
+      font-size: 26px;
+      color: #111;
+      background: #f2f2f2;
+      padding: 8px;
+      border-radius: 50%;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: #000;
+        color: #fff;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .top-actions {
+  display: flex;
+  gap: 12px;
+}
+
+
+  /* 🏷️ Hero Section */
+  .hero-text {
+    margin-top: 1.8rem;
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #000;
+
+      span {
+        position: relative;
+        color: #000;
+      }
+
+      span::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 3px;
+        width: 100%;
+        height: 5px;
+        background: #f9d300; /* Nike yellow accent */
+        border-radius: 3px;
+        z-index: -1;
+      }
+    }
+
+    p {
+      color: #555;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Hero Shop Button */
+    .shop-btn {
+      margin-top: 18px;
+      --background: #000 !important;  /* black button */
+      --color: #fff !important;       /* white text */
+      font-weight: 600;
+      border-radius: 14px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+
+      &:hover {
+        --background: #111 !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  /* 🔍 Search */
+  .search-row {
+    margin-top: 20px;
+
+    ion-searchbar {
+      --background: #f2f2f2;
+      --border-radius: 14px;
+      --placeholder-color: #888;
+      --color: #000;
+      --icon-color: #111;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* 🧢 Category Chips */
+  .chips {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.2rem;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+
+    ion-chip {
+      --background: #f3f3f3;
+      font-weight: 500;
+      color: #333;
+      transition: 0.25s ease;
+      border-radius: 16px;
+      padding: 0 10px;
+
+      &.active {
+        --background: #000;
+        color: #fff;
+        transform: scale(1.1);
+      }
+
+      &:hover {
+        --background: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  /* 🌟 Featured Section */
+  .featured {
+    margin-top: 2.2rem;
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .featured-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+
+      .featured-card {
+        min-width: 200px;
+        background: #fefefe;
+        border-radius: 18px;
+        padding: 14px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.242);
+        transition: 0.3s ease;
+        scroll-snap-align: start;
+
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .image-wrapper {
+          background: #d1d1d1;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 140px;
+
+          img {
+            width: 120px;
+            transition: 0.3s ease;
+          }
+
+          img:hover {
+            transform: scale(1.05);
+          }
+        }
+
+        .info {
+          margin-top: 10px;
+          text-align: left;
+
+          h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #000;
+          }
+
+          p {
+            color: #111;
+            font-weight: 700;
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* 🏪 Shop Preview Section */
+  .shop-preview {
+    margin-top: 3rem;
+    text-align: center;
+    padding-bottom: 2rem;
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #000;
+    }
+
+    p {
+      color: #555;
+      font-size: 0.95rem;
+      margin: 0.5rem 0 1.2rem 0;
+    }
+
+    /* Shop Now Button */
+    .shop-now {
+      --background: #000 !important; /* black button */
+      --color: #fff !important;      /* white text */
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border-radius: 14px;
+      padding: 0.6rem 1.2rem;
+      transition: 0.3s ease;
+
+      ion-icon {
+        color: #fff !important; /* icon white */
+        font-size: 16px;
+        margin-left: 6px;
+      }
+
+      &:hover {
+        --background: #111 !important;
+        transform: scale(1.05);
+      }
+    }
+
+    .shop-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+
+      .shop-card {
+        width: 155px;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.37);
+        transition: 0.3s ease;
+
+        &:hover {
+          transform: translateY(-4px);
+        }
+
+        img {
+          width: 100%;
+          height: 120px;
+          object-fit: contain;
+          background: #d1d1d1;
+          border-radius: 14px;
+        }
+
+        .info {
+          margin-top: 8px;
+          text-align: center;
+
+          h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #111;
+          }
+
+          p {
+            color: #000;
+            font-weight: 700;
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+}

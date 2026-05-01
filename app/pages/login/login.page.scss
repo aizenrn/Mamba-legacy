@@ -1,0 +1,91 @@
+.nike-bg {
+  // 1. Texture Background (Absolute path fix)
+  --background: url('/assets/images/nike-pattern.png') repeat center/300px !important;
+  --ion-background-color: #1a1a1a !important; 
+  background-color: #1a1a1a !important;
+
+  .login-wrapper {
+    // 2. The "White Card" - Glassmorphism effect
+    background: rgba(255, 255, 255, 0.98); 
+    padding: 40px 30px;
+    margin: 15% 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .logo-container {
+    margin-bottom: 30px;
+    text-align: center;
+    .logo {
+      width: 55px;
+      filter: brightness(0); 
+    }
+  }
+
+  .header-text {
+    margin-bottom: 30px;
+    text-align: center;
+    h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -1px;
+      margin: 0 0 5px 0;
+      color: #000000;
+    }
+    p {
+      color: #666;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+  }
+
+  .input-group {
+    margin-bottom: 10px;
+
+    .custom-input {
+      --background: #ffffff;
+      --border-radius: 30px;
+      --padding-start: 15px;
+      --highlight-height: 0;
+      margin-bottom: 15px;
+      height: 52px;
+      border: 1px solid #e0e0e0;
+      border-radius: 30px;
+      
+      ion-input {
+        --color: #000000;
+        --placeholder-color: #999;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .nike-button {
+    --background: #3b5998; 
+    --background-activated: #2d4373;
+    --border-radius: 30px;
+    --color: #ffffff;
+    margin-top: 20px;
+    height: 54px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  .footer-text {
+    text-align: center;
+    margin-top: 25px;
+    p { 
+      color: #3b5998; 
+      font-size: 0.85rem; 
+      font-weight: 600; 
+      cursor: pointer;
+    }
+  }
+}

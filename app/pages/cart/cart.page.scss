@@ -1,0 +1,134 @@
+.cart-page {
+  --background: #ffffff !important;
+  background: #ffffff !important;
+  color: #333;
+
+  .custom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px; // Increased padding for a more premium look
+
+    ion-title { 
+      font-weight: 700; 
+      font-size: 1.2rem; 
+      color: #000; 
+      --color: #000;
+      text-align: center;
+    }
+
+    .header-btn { 
+      --color: #000; 
+      --background: #f5f5f5; 
+      --border-radius: 50%; 
+      
+      /* --- BIGGER BUTTON DIMENSIONS --- */
+      width: 52px; 
+      height: 52px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      /* If using ion-icon */
+      ion-icon {
+        font-size: 1.8rem; 
+        color: #000;
+      }
+
+      /* If using back-arrow image asset */
+      .back-icon-img {
+        width: 24px; 
+        height: 24px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .cart-container {
+    padding: 0 20px;
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      position: relative;
+      
+      .item-img-box {
+        background: #f4f4f4;
+        border-radius: 20px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img { width: 85%; object-fit: contain; }
+      }
+
+      .item-info {
+        padding-left: 15px;
+        flex: 1;
+        h3 { font-size: 0.9rem; margin: 0; color: #888; font-weight: 500; }
+        .price { font-size: 1.2rem; font-weight: 700; margin: 8px 0; color: #000; }
+        
+        .qty-pill {
+          display: flex;
+          align-items: center;
+          background: #f9f9f9;
+          border-radius: 25px;
+          width: fit-content;
+          border: 1px solid #eee;
+          ion-button { --color: #000; font-size: 1.2rem; height: 32px; }
+          .add-btn { --background: #2ecc71; --color: white; border-radius: 50%; width: 28px; height: 28px; margin: 2px; }
+          span { padding: 0 12px; font-weight: 600; color: #000; }
+        }
+      }
+      // Repositioned trash icon so it doesn't overlap the shoe
+      .remove-icon { position: absolute; right: -10px; top: 0; --color: #ff4d4d; }
+    }
+  }
+
+  .coupon-section {
+    margin: 20px 0;
+    .coupon-label { font-size: 0.85rem; color: #aaa; margin-bottom: 8px; }
+    .coupon-input {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 12px;
+      .code { font-weight: 700; font-size: 0.9rem; color: #333; }
+      .status { color: #2ecc71; font-size: 0.85rem; display: flex; align-items: center; gap: 5px; font-weight: 500; }
+    }
+  }
+
+  .summary-card {
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      span { color: #333; font-size: 0.9rem; }
+      strong { color: #000; font-weight: 600; }
+      .green-text { color: #2ecc71; }
+      &.total {
+        margin-top: 15px;
+        span { color: #333; font-weight: 500; }
+        .total-val { font-size: 1.5rem; color: #000; font-weight: 800; }
+      }
+    }
+    .dashed-divider { border-bottom: 2px dashed #f0f0f0; margin: 20px 0; }
+  }
+
+  .checkout-btn-main {
+    --background: #1ca65c;
+    --color: white;
+    --border-radius: 25px;
+    height: 60px;
+    margin: 25px 0 40px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: none;
+  }
+}

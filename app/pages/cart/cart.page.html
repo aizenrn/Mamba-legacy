@@ -1,0 +1,63 @@
+<ion-content fullscreen class="cart-page">
+  <div class="custom-header">
+    <ion-button fill="clear" (click)="goBack()" class="header-btn">
+      <img src="assets/images/back-arrow.png" class="back-icon-img" alt="Back" />
+    </ion-button>
+
+    <ion-button fill="clear" class="header-btn">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="cart-container" *ngIf="cart.length > 0">
+    <div class="cart-item" *ngFor="let item of cart; let i = index">
+      <div class="item-img-box">
+        <img [src]="item.image" />
+      </div>
+      <div class="item-info">
+        <h3>{{ item.name }}</h3>
+        <p class="price">${{ item.price | number:'1.0-0' }}</p>
+        
+        <div class="qty-pill">
+          <ion-button fill="clear" (click)="decreaseQty(item)">–</ion-button>
+          <span>{{ item.quantity }}</span>
+          <ion-button fill="solid" class="add-btn" (click)="increaseQty(item)">+</ion-button>
+        </div>
+      </div>
+      <ion-button fill="clear" (click)="remove(i)" class="remove-icon">
+        <ion-icon name="trash-outline" color="danger"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="coupon-section">
+      <p class="coupon-label">Have a coupon code?</p>
+      <div class="coupon-input">
+        <span class="code">DROPSYEAREND</span>
+        <span class="status">Available <ion-icon name="checkmark-circle"></ion-icon></span>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="row"><span>Sub Total</span> <strong>${{ subTotal | number:'1.2-2' }}</strong></div>
+      <div class="row"><span>Delivery Fee</span> <strong>$15.00</strong></div>
+      <div class="row discount"><span>Discount</span> <strong class="green-text">- $200.00</strong></div>
+      <div class="dashed-divider"></div>
+      <div class="row total">
+        <span>Total</span>
+        <span class="total-val">${{ (subTotal + 15 - 200) | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <ion-button expand="block" class="checkout-btn-main" (click)="checkout()">
+      Checkout
+    </ion-button>
+  </div>
+
+  <div *ngIf="cart.length === 0" class="empty-cart">
+    <div class="empty-content">
+      <ion-icon name="bag-handle-outline" class="empty-bag"></ion-icon>
+      <p>Your cart is empty</p>
+      <ion-button fill="outline" (click)="goShop()">Go Shopping</ion-button>
+    </div>
+  </div>
+</ion-content>

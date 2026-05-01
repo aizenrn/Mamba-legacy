@@ -1,0 +1,36 @@
+<ion-content fullscreen>
+  <!-- Header -->
+  <div class="header">
+    <h2>My Favorites ({{ count() }})</h2>
+    <ion-button fill="clear" color="danger" (click)="clearFavorites()">Clear All</ion-button>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="favorites().length === 0" class="empty">
+    <ion-icon name="heart-outline"></ion-icon>
+    <p>No favorites yet</p>
+    <ion-button color="dark" (click)="goToShop()">Go Shopping</ion-button>
+  </div>
+
+  <!-- Favorite Items -->
+  <div class="favorites-grid" *ngIf="favorites().length > 0">
+    <ion-card *ngFor="let item of favorites()">
+      <img [src]="item.image" [alt]="item.name" />
+      <ion-card-header>
+        <ion-card-title>{{ item.name }}</ion-card-title>
+        <ion-card-subtitle>\${{ item.price }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button fill="outline" color="primary" (click)="addToCart(item)">
+          <ion-icon name="cart-outline" slot="start"></ion-icon>
+          Add to Cart
+        </ion-button>
+
+        <ion-button fill="clear" color="danger" (click)="removeFavorite(item.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

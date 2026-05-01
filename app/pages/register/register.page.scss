@@ -1,0 +1,34 @@
+.nike-bg {
+  --background: url('/assets/images/nike-pattern.jpg') repeat center/300px !important;
+  --ion-background-color: #1a1a1a !important;
+  background-color: #1a1a1a !important;
+
+  .login-wrapper {
+    position: relative;
+    z-index: 10; // Ensures the card is above the background layer
+    background: #ffffff !important; // Use solid white if rgba is too transparent
+    padding: 40px 30px;
+    margin: 10% 20px; 
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .custom-input {
+    --background: #f4f4f4; // Light grey so you can see where to type
+    --color: #000000;
+    --placeholder-color: #666;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .nike-button {
+    --background: #3b5998;
+    margin-top: 15px;
+    // Ensure the button is not being overlapped
+    position: relative;
+    z-index: 20; 
+  }
+}

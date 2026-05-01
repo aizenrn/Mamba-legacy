@@ -1,0 +1,49 @@
+<ion-content class="nike-bg">
+  <div class="login-wrapper">
+    <div class="logo-container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
+        alt="Nike"
+        class="logo"
+      />
+    </div>
+
+    <div class="header-text">
+      <h1>Welcome Back</h1>
+      <p>Sign in to continue shopping</p>
+    </div>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="input-group">
+        <ion-item lines="full" class="custom-input">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input
+            [(ngModel)]="email"
+            name="email"
+            type="email"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="full" class="custom-input">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            required>
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <!-- ✅ fixed: no optional chaining needed -->
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="!loginForm.form.valid"
+        class="nike-button">
+        Log In
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

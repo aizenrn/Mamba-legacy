@@ -1,0 +1,57 @@
+<ion-content class="home-page" fullscreen>
+  <div class="topbar">
+    <div class="logo">MAMBA</div>
+
+    <div class="top-actions">
+      <ion-icon name="heart-outline" (click)="goToFavorites()"></ion-icon>
+      <ion-icon name="menu-outline" (click)="goToAccount()"></ion-icon>
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <h1>Find Your <span>Perfect Fit</span></h1>
+    <p>Discover the latest drops and timeless classics.</p>
+    <ion-button expand="block" (click)="goToShop()">SHOP NOW</ion-button>
+  </div>
+
+  <div class="search-row">
+    <ion-searchbar [(ngModel)]="q" placeholder="Search for sneakers..."></ion-searchbar>
+  </div>
+
+  <div class="chips">
+    <ion-chip *ngFor="let c of categories" [class.active]="selectedCategory === c" (click)="selectedCategory = c">
+      {{ c }}
+    </ion-chip>
+  </div>
+
+  <section class="featured">
+    <h2>Featured</h2>
+    <div class="featured-scroll">
+      <div class="featured-card" *ngFor="let p of products">
+        <div class="image-wrapper"><img [src]="p.image" [alt]="p.name"></div>
+        <div class="info">
+          <h4>{{ p.name }}</h4>
+          <p>${{ p.price }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop-preview">
+    <h2>Shop Collection</h2>
+    <p>Explore our curated range of lifestyle and performance sneakers.</p>
+    <ion-button fill="clear" class="shop-now" (click)="goToShop()">
+      Explore Shop <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+
+    <div class="shop-grid">
+      <div class="shop-card" *ngFor="let p of products | slice:0:3">
+        <img [src]="p.image" [alt]="p.name">
+        <div class="info">
+          <h4>{{ p.name }}</h4>
+          <p>${{ p.price }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <button (click)="goBack()" class="force-back-button">
+        <span class="arrow-left"></span>
+      </button>
+    </ion-buttons>
+    
+    <ion-title>Nike Kobe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="orders$ | async as orders; else empty" class="orders-page">
+  <ion-list>
+    <ion-item *ngFor="let order of orders" lines="none" class="order-item">
+      <ion-label>
+        <div class="order-card">
+          <div class="order-header">
+            <h2>Order #{{ order.id }}</h2>
+            <span 
+              class="status"
+              [ngClass]="{
+                'paid': order.status.toLowerCase() === 'paid',
+                'pending': order.status.toLowerCase() === 'pending',
+                'cancelled': order.status.toLowerCase() === 'cancelled'
+              }">
+              {{ order.status }}
+            </span>
+          </div>
+
+          <div class="product-images">
+            <img *ngFor="let item of order.items" [src]="item.image || 'assets/images/default-product.png'" [alt]="item.name">
+          </div>
+
+          <div class="order-info">
+            <p><strong>Buyer:</strong> <span>{{ order.name }}</span></p>
+            <p><strong>Address:</strong> <span>{{ order.address }}</span></p>
+            <p><strong>Total:</strong> <span>${{ order.total }}</span></p>
+            <p><strong>Placed:</strong> <span>{{ order.createdAt?.toDate() | date:'short' }}</span></p>
+          </div>
+
+          <div class="order-actions">
+            <ion-button class="view-details" (click)="viewDetails(order)">
+              View Details
+            </ion-button>
+            <ion-button 
+              class="cancel-order" 
+              [disabled]="order.status.toLowerCase() === 'cancelled'"
+              (click)="cancelOrder(order)">
+              Cancel Order
+            </ion-button>
+          </div>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ng-template #empty>
+  <div class="empty-state">
+    <h2>No orders yet!</h2>
+    <p>Your Kobe gear will appear here after checkout.</p>
+  </div>
+</ng-template>

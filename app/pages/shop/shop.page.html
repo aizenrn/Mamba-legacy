@@ -1,0 +1,64 @@
+<ion-content fullscreen class="shop-page">
+
+  <!-- 🔙 Back to Home -->
+  <ion-fab slot="fixed" vertical="top" horizontal="start">
+    <ion-fab-button color="light" (click)="goBackHome()">
+      <img src="assets/images/arrow-back-outline.png" />
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- 🏷️ Hero -->
+  <section class="hero" >
+    <div class="hero-text">
+      <h1>Discover the <span>Kobe Collection</span></h1>
+      <p>Elevate your game and style with the latest sneakers.</p>
+      <ion-button fill="solid" color="dark" (click)="shopNow()">Shop Now</ion-button>
+    </div>
+    <div class="hero-img">
+      <img src="assets/images/hero-shoe.png" alt="Hero Shoe" />
+    </div>
+  </section>
+
+  <!-- 🛍️ Product Grid -->
+  <section class="shop-grid" id="products">
+    <h2>Available Shoes</h2>
+
+    <div class="grid">
+      <div class="shoe-card" *ngFor="let shoe of shoes">
+        <div class="img-wrap">
+          <img [src]="shoe.image" [alt]="shoe.name" />
+        </div>
+        <div class="info">
+          <h3>{{ shoe.name }}</h3>
+          <p class="price">${{ shoe.price }}</p>
+        </div>
+        <div class="actions">
+          <ion-button color="primary" (click)="addToCart(shoe)">Add to Cart</ion-button>
+          <ion-button color="warning" fill="solid" (click)="buyNow(shoe)">Buy Now</ion-button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 👟 About -->
+  <section class="about">
+    <div class="about-text">
+      <h2>Step Into <span>Performance</span></h2>
+      <p>Engineered for athletes. Designed for everyone.</p>
+      <ion-button class="learn-more" fill="outline" (click)="onLearnMore()">Learn More</ion-button>
+
+    </div>
+    <div class="about-img">
+      <img src="assets/images/about-shoe.png" alt="About Shoe" />
+    </div>
+  </section>
+
+  <!-- 🛒 Floating Cart -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="dark" (click)="goToCart()">
+      <img src="assets/images/cart-outline.png" />
+      <ion-badge *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

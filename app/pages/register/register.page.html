@@ -1,0 +1,60 @@
+<ion-content class="nike-bg" fullscreen="true">
+  <div class="login-wrapper">
+    <div class="logo-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" class="logo">
+    </div>
+
+    <div class="header-text">
+      <h1>Join Us</h1>
+      <p>Create your Nike Member profile</p>
+    </div>
+
+    <form (ngSubmit)="register()" #regForm="ngForm">
+      <div class="input-group">
+        
+        <ion-item lines="none" class="custom-input">
+          <ion-input 
+            type="text" 
+            name="name" 
+            placeholder="Full Name" 
+            [(ngModel)]="name" 
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="custom-input">
+          <ion-input 
+            type="email" 
+            name="email" 
+            placeholder="Email Address" 
+            [(ngModel)]="email" 
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="custom-input">
+          <ion-input 
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            [(ngModel)]="password" 
+            required>
+          </ion-input>
+        </ion-item>
+
+      </div>
+
+      <ion-button 
+        expand="block" 
+        type="submit" 
+        [disabled]="!regForm.form.valid" 
+        class="nike-button">
+        Create Account
+      </ion-button>
+    </form>
+
+    <div class="footer-text">
+      <p (click)="goToLogin()">Already a member? <span class="sign-in-link">Sign In.</span></p>
+    </div>
+  </div>
+</ion-content>

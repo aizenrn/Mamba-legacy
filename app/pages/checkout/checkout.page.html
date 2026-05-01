@@ -1,0 +1,94 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goShopping()" class="custom-back-btn">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+        <span class="arrow-left"></span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="checkout-page">
+  <section class="checkout-header">
+    <p>Complete your order and step up your style 👟</p>
+  </section>
+
+  <section *ngIf="cartItems.length > 0; else emptyCart" class="checkout-body">
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+
+      <div class="summary-item" *ngFor="let item of cartItems">
+        <img [src]="item.image" [alt]="item.name" />
+        <div class="info">
+          <h3>{{ item.name }}</h3>
+          <p>${{ item.price }} × {{ item.quantity }}</p>
+        </div>
+      </div>
+
+      <div class="total">
+        <span>Total</span>
+        <strong>${{ total }}</strong>
+      </div>
+    </div>
+
+    <!-- 💳 Payment Form -->
+    <div class="payment-form">
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input [(ngModel)]="formData.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input [(ngModel)]="formData.address"></ion-input>
+      </ion-item>
+
+      <!-- 💳 Card Number with detection -->
+      <ion-item>
+        <ion-label position="floating">Card Number</ion-label>
+        <ion-input
+          type="text"
+          maxlength="19"
+          [(ngModel)]="formData.card"
+          (ionInput)="detectCardType()"
+        ></ion-input>
+      </ion-item>
+
+      <!-- 🖼️ Glowing Card Logos -->
+      <div class="card-logos">
+        <img
+          [class.active]="formData.cardType === 'visa'"
+          src="assets/images/visa.png"
+          alt="Visa"
+        />
+        <img
+          [class.active]="formData.cardType === 'mastercard'"
+          src="assets/images/mastercard.png"
+          alt="MasterCard"
+        />
+        <img
+          [class.active]="formData.cardType === 'amex'"
+          src="assets/images/amex.png"
+          alt="Amex"
+        />
+        <img
+          [class.active]="formData.cardType === 'discover'"
+          src="assets/images/discover.png"
+          alt="Discover"
+        />
+      </div>
+
+      <ion-button expand="block" color="dark" (click)="payNow()">Pay Now</ion-button>
+    </div>
+  </section>
+
+  <!-- 🛒 Empty Cart -->
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <h2>Your cart is empty 🛒</h2>
+      <ion-button color="primary" expand="block" (click)="goShopping()">Go Shopping</ion-button>
+    </div>
+  </ng-template>
+</ion-content>

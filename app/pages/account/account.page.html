@@ -1,0 +1,63 @@
+<ion-content class="account">
+
+  <!-- Header -->
+  <div class="header">
+    <ion-icon name="menu-outline" class="menu-icon" (click)="goHome()"></ion-icon>
+    <img src="assets/images/nike-logo.png" class="nike-logo" />
+  </div>
+
+  <!-- Profile -->
+  <div class="profile" *ngIf="userData$ | async as userData">
+    <img
+      class="avatar"
+      [src]="userData['photoURL'] || 'assets/images/default-avatar.jpg'"
+    />
+    <h2>{{ userData['name'] }}</h2>
+    <p>{{ userData['email'] }}</p>
+  </div>
+
+  <!-- Menu Buttons -->
+  <div class="menu">
+
+    <ion-button expand="block" fill="outline" (click)="goHome()">
+      <ion-icon slot="start" name="home-outline"></ion-icon>
+      Home
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="goOrders()">
+      <ion-icon slot="start" name="receipt-outline"></ion-icon>
+      Orders
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="goAbout()">
+      About Us
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="goTerms()">
+      Terms of Use
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="goPrivacy()">
+      Privacy Policy
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      color="danger"
+      (click)="deleteAccount()"
+    >
+      Delete Account
+    </ion-button>
+
+  </div>
+
+  <!-- Logout -->
+  <div class="logout">
+    <ion-button color="dark" expand="block" (click)="logout()">
+      Log out
+      <ion-icon slot="end" name="log-out-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+</ion-content>
